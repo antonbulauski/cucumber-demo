@@ -8,11 +8,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MenuSteps {
 
-    private HomePage homePage = new HomePage();
+    private final HomePage homePage = new HomePage();
 
     @When("the user opens Cucumber website")
     public void openCucumberWebsite() {
         homePage.openCucumberWebsite();
+    }
+
+    @When("the user click on the Allow all cookies button")
+    public void clickAllowAllCookiesButton() {
+        homePage.allowAllCookiesButton().click();
     }
 
     @When("the user clicks on the {string} section")

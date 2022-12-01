@@ -3,31 +3,23 @@ package com.cucumber.demo.driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 
-import static org.openqa.selenium.chrome.ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY;
+public final class DriverManager {
 
-public class DriverManager {
-
-    private static final int WAIT_TIMEOUT = 40;
-    private static final String CHROME_DRIVER_PATH = "./src/main/resources/chromedriver.exe";
-    private static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
+    private static final Duration WAIT_TIMEOUT = Duration.ofSeconds(20);
+    private static final ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
 
     private DriverManager() {
     }
 
     public static void setupDriver() {
-        WebDriver driver = getChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(WAIT_TIMEOUT, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT);
+        driver.manage().timeouts().pageLoadTimeout(WAIT_TIMEOUT);
         threadLocalDriver.set(driver);
-    }
-
-    private static ChromeDriver getChromeDriver() {
-        System.setProperty(CHROME_DRIVER_EXE_PROPERTY, CHROME_DRIVER_PATH);
-        return new ChromeDriver();
     }
 
     public static WebDriver getDriver() {

@@ -11,11 +11,16 @@ import static java.lang.String.format;
 public class HomePage extends BasePage {
 
     private static final String CUCUMBER_URL = "https://cucumber.io/";
+    private static final String ALLOW_ALL_COOKIES_XPATH = "//button[text()='Allow all cookies']";
     private static final String MENU_LINK_PATTERN = "//*[contains(@class,'nav-link') and contains(text(),'%s')]";
     private static final String CHILD_MENU_LINK_PATTERN = "//*[contains(@class,'menu-docs')]//*[contains(@class,'item item-al')]";
 
     public void openCucumberWebsite() {
         DriverManager.getDriver().get(CUCUMBER_URL);
+    }
+
+    public WebElement allowAllCookiesButton() {
+        return findElement(By.xpath(ALLOW_ALL_COOKIES_XPATH));
     }
 
     public WebElement menuSection(String linkText) {
