@@ -1,6 +1,5 @@
 package com.cucumber.demo.pages;
 
-import com.cucumber.demo.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -16,11 +15,11 @@ public class HomePage extends BasePage {
     private static final String CHILD_MENU_LINK_PATTERN = "//*[contains(@class,'menu-docs')]//*[contains(@class,'item item-al')]";
 
     public void openCucumberWebsite() {
-        DriverManager.getDriver().get(CUCUMBER_URL);
+        driver.get(CUCUMBER_URL);
     }
 
     public WebElement allowAllCookiesButton() {
-        return findElement(By.xpath(ALLOW_ALL_COOKIES_XPATH));
+        return waitForElement(By.xpath(ALLOW_ALL_COOKIES_XPATH));
     }
 
     public WebElement menuSection(String linkText) {
