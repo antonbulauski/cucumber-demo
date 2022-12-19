@@ -8,5 +8,5 @@ import io.cucumber.testng.CucumberOptions;
         tags = "@smoke",
         glue = "com.cucumber.demo",
         features = "src/test/resources/features")
-public class CucumberTestRunner extends AbstractTestNGCucumberTests {
+public class RunCucumberTest extends AbstractTestNGCucumberTests {
 }
