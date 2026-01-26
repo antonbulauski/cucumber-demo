@@ -11,7 +11,7 @@
     <properties>
         <java.version>8</java.version>
         <source.encoding>UTF-8</source.encoding>
-        <assertj.version>3.23.1</assertj.version>
+        <assertj.version>3.27.7</assertj.version>
         <testng.version>7.0.0</testng.version>
         <cucumber.version>7.10.0</cucumber.version>
         <selenium.version>4.7.1</selenium.version>
